@@ -54,7 +54,9 @@ class ProductUnitController extends Controller
      */
     public function edit($id)
     {
-        
+        return view('product-units.edit', [
+            'product_unit' => ProductUnit::findOrFail($id)
+        ]);
     }
 
     /**
@@ -66,7 +68,11 @@ class ProductUnitController extends Controller
      */
     public function update(ProductUnitRequest $request, $id)
     {
-        
+        $product_unit = ProductUnit::findOrFail($id);
+        $product_unit->update($request->all());
+
+        return redirect()->route('product-units.index')
+            ->with('alert', 'Product Unit berhasil diupdate.');
     }
 
     /**
@@ -77,6 +83,10 @@ class ProductUnitController extends Controller
      */
     public function destroy($id)
     {
-        
+        $product_unit = ProductUnit::findOrFail($id);
+        $product_unit->delete();
+
+        return redirect()->route('product-units.index')
+            ->with('alert', 'Product Unit berhasil dihapus.');
     }
 }
