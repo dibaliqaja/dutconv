@@ -29,7 +29,7 @@ class ProductUnitController extends Controller
      */
     public function create()
     {
-        
+        return view('product-units.create');   
     }
 
     /**
@@ -40,7 +40,10 @@ class ProductUnitController extends Controller
      */
     public function store(ProductUnitRequest $request)
     {
-        
+        ProductUnit::create($request->all());
+
+        return redirect()->route('product-units.index')
+            ->with('alert', 'Product Unit berhasil ditambahkan.');
     }
 
     /**
