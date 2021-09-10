@@ -11,7 +11,12 @@
                 <a href="{{ route('product-units.index') }}" class="nav-link">
                     <i class="fas fa-balance-scale"></i><span>Product Units</span>
                 </a>
-            </li>            
+            </li>
+            <li class="{{ (request()->routeIs('products*')) ? 'active' : '' }}">
+                <a href="{{ route('products.index') }}" class="nav-link">
+                    <i class="fas fa-database"></i><span>Products</span>
+                </a>
+            </li>         
         </ul>
     </aside>
 </div>
