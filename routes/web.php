@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductUnitController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource('product-units', ProductUnitController::class);
+Route::get('products', [ProductController::class, 'index'])->name('products.index');
