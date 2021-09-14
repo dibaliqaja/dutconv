@@ -9,14 +9,19 @@
         <ul class="sidebar-menu">
             <li class="{{ (request()->routeIs('product-units*')) ? 'active' : '' }}">
                 <a href="{{ route('product-units.index') }}" class="nav-link">
-                    <i class="fas fa-balance-scale"></i><span>Product Units</span>
+                    <i class="fas fa-percent"></i><span>Product Units</span>
                 </a>
             </li>
             <li class="{{ (request()->routeIs('products*')) ? 'active' : '' }}">
                 <a href="{{ route('products.index') }}" class="nav-link">
                     <i class="fas fa-database"></i><span>Products</span>
                 </a>
-            </li>         
+            </li>
+            <li class="{{ (request()->routeIs('product-units*')) ? 'active' : '' }}">
+                <a href="{{ route('product-units.index') }}" class="nav-link">
+                    <i class="fas fa-balance-scale"></i><span>Conversion Rates</span>
+                </a>
+            </li>        
         </ul>
     </aside>
 </div>
