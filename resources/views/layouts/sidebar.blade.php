@@ -17,11 +17,16 @@
                     <i class="fas fa-database"></i><span>Products</span>
                 </a>
             </li>
-            <li class="{{ (request()->routeIs('product-units*')) ? 'active' : '' }}">
+            <li class="{{ (request()->routeIs('agencies*')) ? 'active' : '' }}">
+                <a href="{{ route('agencies.index') }}" class="nav-link">
+                    <i class="fas fa-building"></i><span>Instansi</span>
+                </a>
+            </li>  
+            {{-- <li class="{{ (request()->routeIs('product-units*')) ? 'active' : '' }}">
                 <a href="{{ route('product-units.index') }}" class="nav-link">
                     <i class="fas fa-balance-scale"></i><span>Conversion Rates</span>
                 </a>
-            </li>        
+            </li>         --}}
         </ul>
     </aside>
 </div>
