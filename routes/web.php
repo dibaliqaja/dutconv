@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AgencyController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductUnitController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,6 @@ Route::get('products', [ProductController::class, 'index'])->name('products.inde
 Route::resource('agencies', AgencyController::class)->except([
     'create', 'edit', 'show'
 ]);
+
+Route::get('customers-table', [CustomerController::class, 'table'])->name('customers.table.index');
+Route::get('customers-datatable', [CustomerController::class, 'datatable'])->name('customers.datatable.index');
