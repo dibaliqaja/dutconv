@@ -29,10 +29,20 @@ class CustomerController extends Controller
      */
     public function datatable(Request $request)
     {
+        $query = Customer::select('id', 'name', 'email', 'created_at');
         if ($request->ajax()) {
-            return DataTables::of(Customer::select('name', 'email'))->make(true);
+            if (request('date_filter')) {
+                $filter_date = now()->subDays(request('date_filter'))->toDateString();
+                info($filter_date);
+                $query->where('created_at', '>=', $filter_date);
+            }
+            return DataTables::of($query)->make(true);
         }
 
-        return view('customers.datatable');
+        $customers = Customer::all();
+        $names =  $customers->sortBy('name')->pluck('name')->unique();
+        $emails =  $customers->sortBy('email')->pluck('email')->unique();
+
+        return view('customers.datatable', compact('names', 'emails'));
     }
 }
